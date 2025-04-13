@@ -31,6 +31,8 @@ public class Product {
         this.createdAt = LocalDateTime.now(); // seta a data na hora de salvar
     }
 
+    public Product() {}
+
     public Product(RegisterProductData data) {
         this.title = data.title();
         this.description = data.description();
