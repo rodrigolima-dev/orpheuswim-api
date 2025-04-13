@@ -1,10 +1,17 @@
 package orpheuswim.api.product;
 
-import jakarta.persistence.Embeddable;
 
-@Embeddable
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 public enum Category {
     BIKINIS,
     CONJUNTOS,
-    ACESSORIOS
+    ACESSORIOS;
+
+    @JsonCreator
+    public static Category fromString(String value) {
+        return Category.valueOf(value.toUpperCase());
+    }
 }
+
+

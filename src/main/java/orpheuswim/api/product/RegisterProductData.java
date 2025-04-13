@@ -1,12 +1,14 @@
 package orpheuswim.api.product;
 
-import java.time.LocalDateTime;
+import jakarta.validation.constraints.NotBlank;
+
+import java.math.BigDecimal;
 
 public record RegisterProductData(
         String title,
         String description,
-        String price,
+        BigDecimal price,
         String imageUrl,
-        Category category
+        String category
 ) {
 }
