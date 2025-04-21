@@ -2,13 +2,12 @@ package orpheuswim.api.controller;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
-import orpheuswim.api.product.*;
+import orpheuswim.api.domain.product.*;
 
 import java.util.List;
 

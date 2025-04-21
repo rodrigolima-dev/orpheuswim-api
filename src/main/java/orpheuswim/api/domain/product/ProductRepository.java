@@ -1,4 +1,4 @@
-package orpheuswim.api.product;
+package orpheuswim.api.domain.product;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

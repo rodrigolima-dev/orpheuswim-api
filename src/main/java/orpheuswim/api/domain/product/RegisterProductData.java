@@ -1,4 +1,4 @@
-package orpheuswim.api.product;
+package orpheuswim.api.domain.product;
 
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Digits;

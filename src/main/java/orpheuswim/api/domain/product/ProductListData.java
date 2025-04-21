@@ -1,4 +1,4 @@
-package orpheuswim.api.product;
+package orpheuswim.api.domain.product;
 
 import java.math.BigDecimal;
 
