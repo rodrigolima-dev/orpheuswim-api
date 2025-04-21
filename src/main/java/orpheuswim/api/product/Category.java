@@ -10,6 +10,7 @@ public enum Category {
 
     @JsonCreator
     public static Category fromString(String value) {
+        if (value == null || value.isBlank()) return null;
         return Category.valueOf(value.toUpperCase());
     }
 }

@@ -1,6 +1,7 @@
 package orpheuswim.api.product;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 
 
 import java.math.BigDecimal;
@@ -76,5 +77,24 @@ public class Product {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
+    }
+
+
+    public void update(@Valid ProductUpdateData data) {
+        if (data.title() != null) {
+            this.title = data.title();
+        }
+
+        if (data.description() != null) {
+            this.description = data.description();
+        }
+
+        if(data.price() != null) {
+            this.price = data.price();
+        }
+
+        if(data.imageUrl() != null) {
+            this.imageUrl = data.imageUrl();
+        }
     }
 }
