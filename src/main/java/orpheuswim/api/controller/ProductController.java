@@ -11,7 +11,7 @@ import orpheuswim.api.domain.product.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*")
+
 @RestController
 @RequestMapping("/api")
 public class ProductController {
