@@ -1,12 +1,17 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
 
-# .gitignore
 src/main/resources/application.properties
 
+# Build e dependências
+target/
+build/
+nbbuild/
+dist/
+nbdist/
+
+
+!.mvn/wrapper/maven-wrapper.jar
+
+# IDEs
 ### STS ###
 .apt_generated
 .classpath
@@ -17,20 +22,17 @@ src/main/resources/application.properties
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
+.idea/
 *.iws
 *.iml
 *.ipr
 
 ### NetBeans ###
 /nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
 /.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
 ### VS Code ###
 .vscode/
+
+# Arquivos de ajuda/documentação não usados no repositório
+HELP.md

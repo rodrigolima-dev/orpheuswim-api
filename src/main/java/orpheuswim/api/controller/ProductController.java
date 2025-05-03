@@ -1,5 +1,6 @@
 package orpheuswim.api.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,11 +37,21 @@ public class ProductController {
     }
 
     @GetMapping("/products")
-    public ResponseEntity<List<ProductListData>> getAllProducts(@RequestParam(required = false) String category) {
+    public ResponseEntity<List<ProductListData>> getAllProducts(
+            @RequestParam(required = false) String category,
+            @RequestParam(required = false) String search
+    ) {
         List<Product> products;
-        Category enumCategory = Category.fromString(category);
 
-        if (category != null && !category.isEmpty()) {
+        if (search != null && !search.isEmpty()) {
+            if (category != null && !category.isEmpty()) {
+                Category enumCategory = Category.fromString(category);
+                products = repository.findByCategoryAndTitleContainingIgnoreCase(enumCategory, search);
+            } else {
+                products = repository.findByTitleContainingIgnoreCase(search);
+            }
+        } else if (category != null && !category.isEmpty()) {
+            Category enumCategory = Category.fromString(category);
             products = repository.findByCategory(enumCategory);
         } else {
             products = repository.findAll();
@@ -51,13 +62,14 @@ public class ProductController {
                 .toList();
 
         if (result.isEmpty()) {
-            return ResponseEntity.noContent().build(); // HTTP 204
+            return ResponseEntity.noContent().build();
         }
 
-        return ResponseEntity.ok(result); // HTTP 200
+        return ResponseEntity.ok(result);
     }
 
     @PostMapping("/admin")
+    @SecurityRequirement(name = "bearer-key")
     @Transactional
     public ResponseEntity register(@RequestBody @Valid RegisterProductData data, UriComponentsBuilder uriBuilder) {
         var product = new Product(data);
@@ -70,6 +82,7 @@ public class ProductController {
 
 
     @PutMapping("/admin")
+    @SecurityRequirement(name = "bearer-key")
     @Transactional
     public ResponseEntity update(@RequestBody @Valid ProductUpdateData data) {
         var product = repository.getReferenceById(data.id());
@@ -81,6 +94,7 @@ public class ProductController {
 
 
     @DeleteMapping("/admin/{id}")
+    @SecurityRequirement(name = "bearer-key")
     @Transactional
     public ResponseEntity delete(@PathVariable Long id) {
         repository.deleteById(id);
@@ -89,6 +103,7 @@ public class ProductController {
     }
 
     @GetMapping("/admin/{id}")
+    @SecurityRequirement(name = "bearer-key")
     @Transactional
     public ResponseEntity detail(@PathVariable Long id) {
         var product = repository.getReferenceById(id);
