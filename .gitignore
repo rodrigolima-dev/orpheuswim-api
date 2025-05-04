@@ -8,8 +8,6 @@ dist/
 nbdist/
 
 
-!.mvn/wrapper/maven-wrapper.jar
-
 # IDEs
 ### STS ###
 .apt_generated
