@@ -1,4 +1,4 @@
-package orpheuswim.api.controller;
+package orpheuswim.api.controllers;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;

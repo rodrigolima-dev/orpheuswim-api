@@ -1,4 +1,4 @@
-package orpheuswim.api.controller;
+package orpheuswim.api.controllers;
 
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
