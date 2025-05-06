@@ -13,7 +13,10 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("https://orpheuswim-frontend.vercel.app")
+                        .allowedOrigins(
+                                "https://www.orpheuswim.store",
+                                "https://orpheuswim.store"
+                        )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*");
             }
