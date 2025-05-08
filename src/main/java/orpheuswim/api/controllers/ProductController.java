@@ -68,6 +68,14 @@ public class ProductController {
         return ResponseEntity.ok(result);
     }
 
+    //uptimeRobot
+    @RequestMapping(value = "/products", method = RequestMethod.HEAD)
+    public ResponseEntity<Void> headAllProducts() {
+        return ResponseEntity.ok().build(); // headers (HTTP 200)
+    }
+
+
+
     @PostMapping("/admin")
     @SecurityRequirement(name = "bearer-key")
     @Transactional

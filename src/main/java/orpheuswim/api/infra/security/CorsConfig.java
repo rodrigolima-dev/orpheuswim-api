@@ -15,6 +15,7 @@ public class CorsConfig {
                 registry.addMapping("/**")
                         .allowedOrigins(
                                 "https://www.orpheuswim.store",
+                                "https://localhost:3000",
                                 "https://orpheuswim.store"
                         )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
